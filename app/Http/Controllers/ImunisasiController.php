@@ -107,7 +107,8 @@ class ImunisasiController extends Controller
         $imunisasi = Imunisasi::with('jenis', 'petugas')
             ->where('id_balita', $id)
             ->orderByDesc('tanggal_imunisasi')
-            ->paginate(10);
+            ->paginate(5); // <= hanya 5 data per halaman
+
 
         return view('imunisasi.lihat2', compact('balita', 'imunisasi'));
     }
